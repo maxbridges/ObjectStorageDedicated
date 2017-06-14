@@ -1,0 +1,9 @@
+[Cloud Object Storage Dedicated IBM Managed](/docs/services/ObjectStorageDedicated/index.html)
+    index.md
+    os_works_dedicated.md
+    os_dedicated.md
+        os_dedicated_credentials.md
+        os_dedicated_objects.md
+        os_dedicated_security.md
+        os_dedicated_unbinding.md
+    ts_index.md
