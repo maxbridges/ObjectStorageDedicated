@@ -10,7 +10,7 @@ lastupdated: "2017-02-23"
 
 
 
-# Getting started with IBM Cloud Object Storage Dedicated IBM Managed {: #getting-started}
+# Getting started with IBM Cloud Object Storage Dedicated {: #getting-started}
 
 
 {{site.data.keyword.cosdimfull}} provides unstructured cloud data storage. You can store and access your content, as well as interactively compose and connect to apps and services.
