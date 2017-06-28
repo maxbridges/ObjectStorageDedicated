@@ -1,9 +1,18 @@
-[Cloud Object Storage Dedicated IBM Managed](/docs/services/ObjectStorageDedicated/index.html)
-    index.md
-    os_works_dedicated.md
-    os_dedicated.md
-        os_dedicated_credentials.md
-        os_dedicated_objects.md
-        os_dedicated_security.md
-        os_dedicated_unbinding.md
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="ObjectStorageDedicated" audience="service" href="/docs/services/ObjectStorageDedicated/getting-started.html"}
+Cloud Object Storage Dedicated IBM Managed
+
+	{: .navgroup id="learn"}
+	getting-started.md
+	os_works_dedicated.md
+    os_dedicated_credentials.md
+    os_dedicated_objects.md
+    os_dedicated_security.md
+    os_dedicated_unbinding.md
     ts_index.md
+	{: .navgroup-end}
+
+
+
