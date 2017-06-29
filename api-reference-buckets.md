@@ -125,8 +125,6 @@ Authorization: {authorization-string}
 
 A `PUT` issued to the endpoint root will create a bucket when a string is provided.  Bucket names must be unique, and accounts are limited to 100 buckets each.  Bucket names must be DNS-compliant; names between 3 and 63 characters long must be made of lowercase letters, numbers, and dashes. Bucket names must begin and end with a lowercase letter or number.  Bucket names resembling IP addresses are not allowed. This operation does not make use of operation specific headers or query parameters.
 
-{% include custom/locations.md %}
-
 **Syntax**
 
 ```shell
@@ -256,7 +254,6 @@ Content-Length: 151
 
 -->
 
-----
 
 ## Retrieve a bucket's headers
 

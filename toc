@@ -4,32 +4,34 @@
 {: .toc subcollection="objectstoragededicated" audience="service" href="/docs/services/objectstoragededicated/index.html"}
 Cloud Object Storage Dedicated
 
-	{: .navgroup id="learn"}
-	index.md
-	os_works_dedicated.md
-	{: .navgroup-end}
+    {: .navgroup id="learn"}
+    index.md
+    os_works_dedicated.md
+    {: .navgroup-end}
 
-	{: .navgroup id="reference"}
-	about-compatibility-api.md
-		{: .topicgroup}
-		API Reference
-			common-headers-errors.md
-			api-reference-buckets.md
-			api-reference-objects.md
-		{: .topicgroup}
-		Tools & SDKs
-			cli.md
-			java.md
-			python.md
-	{: .navgroup-end}
+    {: .navgroup id="reference"}
+    about-compatibility-api.md
 
-	{: .navgroup id="howto"}
+    {: .topicgroup}
+    API Reference
+        common-headers-errors.md
+        api-reference-buckets.md
+        api-reference-objects.md
+
+    {: .topicgroup}
+    Tools & SDKs
+        cli.md
+        java.md
+        python.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
     os_dedicated_credentials.md
     os_dedicated_objects.md
     os_dedicated_security.md
     os_dedicated_unbinding.md
-	{: .navgroup-end}
+    {: .navgroup-end}
 
-	{: .navgroup id="help"}
+    {: .navgroup id="help"}
     ts_index.md
     {: .navgroup-end}
