@@ -15,7 +15,7 @@ lastupdated: "2017-02-23"
 {: shortdesc}
 
 1. Generate [credentials](/docs/services/ObjectStorage/os_dedicated_credentials.html) for your service.
-2. Manage [objects](/docs/services/ObjectStorage/os_dedicated_objects.html) and [access](/docs/services/ObjectStorage/os_dedicated_security.html).
+2. Manage [objects](/docs/services/ObjectStorage/os_dedicated_objects.html) and [access](/docs/services/ObjectStorageDedicated/os_dedicated_security.html).
 
 
-To learn more about how the service works, see [About {{site.data.keyword.cosdimshort}}](/docs/services/ObjectStorage/os_works_dedicated.html).
+To learn more about how the service works, see [About {{site.data.keyword.cosdimshort}}](/docs/services/ObjectStorageDedicated/os_works_dedicated.html).

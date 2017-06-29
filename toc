@@ -7,12 +7,19 @@ Cloud Object Storage Dedicated
 	{: .navgroup id="learn"}
 	getting-started.md
 	os_works_dedicated.md
+	{: .navgroup-end}
+
+	{: .navgroup id="reference"}
+	api-reference.md
+	{: .navgroup-end}
+
+	{: .navgroup id="howto"}
     os_dedicated_credentials.md
     os_dedicated_objects.md
     os_dedicated_security.md
     os_dedicated_unbinding.md
-    ts_index.md
 	{: .navgroup-end}
 
-
-
+	{: .navgroup id="help"}
+    ts_index.md
+    {: .navgroup-end}
