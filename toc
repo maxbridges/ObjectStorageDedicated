@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="objectstoragededicated" audience="service" href="/docs/services/objectstoragededicated/index.html"}
+{: .toc subcollection="ObjectStorageDedicated" audience="service" href="/docs/services/ObjectStorageDedicated/index.html"}
 Cloud Object Storage Dedicated
 
     {: .navgroup id="learn"}
