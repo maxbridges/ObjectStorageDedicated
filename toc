@@ -10,7 +10,17 @@ Cloud Object Storage Dedicated
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
-	api-reference.md
+	about-compatibility-api.md
+		{: .topicgroup}
+		API Reference
+			common-headers-errors.md
+			api-reference-buckets.md
+			api-reference-objects.md
+		{: .topicgroup}
+		Tools & SDKs
+			cli.md
+			java.md
+			python.md
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}

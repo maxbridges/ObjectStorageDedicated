@@ -8,102 +8,9 @@ lastupdated: "2017-02-23"
 {:shortdesc: .shortdesc}
 
 
-# API Reference
+# Bucket operations
 
-The IBM Cloud Object Storage implementation of the S3 API supports the most commonly used subset of Amazon S3 API operations. A complete list of supported operations can be found in the [API overview](docs/services/ObjectStorageDedicated/about-compatibility-api).
-
-{% include note.html content="This reference documentation is being continously improved. If you have technical questions about using the API in your application, please post them on StackOverflow using both `ibm-bluemix` and `object-storage` tags and we will do our best to answer promptly, and then improve this documentation thanks to your feedback." %}
-
-## Common Headers
-
-### Common Request Headers
-The following table describes supported common request headers. COS ignores any common headers not listed below if sent in a request, although some requests may support other headers as defined in this documentation.  More information about creating the authorization header can be found in the ["Authentication"](docs/services/ObjectStorageDedicated/manage-access#authentication)section
-
-| Header             | Note                               |
-|--------------------|-------------------------------------|
-| Authorization      | **Required** for all requests (AWS Signature Version 4).   |
-| Host               | **Required** for all requests.                 |
-| x-amz-date         | **Required** for all requests. Can also be specified as `Date`.               |
-| x-amz-content-sha256 | **Required** for uploading objects or any request with information in the body. |
-| Content-Length     | **Required** for uploading objects, chunked encoding also supported.    |
-| Content-MD5        | A 128-bit MD5 hash value of the request body being sent.                  |
-| Expect             | `100-continue` waits for the headers to be accepted before sending the body.  |
-{:.opstable}
-
-### Common Response Headers
-The following table describes common response headers.
-
-|  Header        | Note |
-|----------------|------|
-| Content-Length | The length of the request body in bytes.      |
-|Connection     |  Indicates whether the connection is open or closed.     |
-| Date           | Timestamp of the request.     |
-| ETag           | MD5 hash value of the request.     |
-| Server         | Name of the responding server.     |
-|X-Clv-Request-Id|  Unique identifier generated per request. |
-{:.opstable}
-
-## Error Codes
-
-| Error Code | Description | HTTP Status Code |
-| --- | ---| --- |
-| AccessDenied | Access Denied | 403 Forbidden |
-| BadDigest | The Content-MD5 you specified did not match what we received. | 400 Bad Request |
-| BucketAlreadyExists | The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again. | 409 Conflict |
-| BucketAlreadyOwnedByYou | Your previous request to create the named bucket succeeded and you already own it. | 409 Conflict |
-| BucketNotEmpty | The bucket you tried to delete is not empty. | 409 Conflict |
-| CredentialsNotSupported | This request does not support credentials. | 400 Bad Request |
-| EntityTooSmall | Your proposed upload is smaller than the minimum allowed object size. | 400 Bad Request |
-| EntityTooLarge | Your proposed upload exceeds the maximum allowed object size. | 400 Bad Request |
-| IncompleteBody | You did not provide the number of bytes specified by the Content-Length HTTP header. | 400 Bad Request |
-| IncorrectNumberOfFilesInPostRequest | POST requires exactly one file upload per request. | 400 Bad Request |
-| InlineDataTooLarge | Inline data exceeds the maximum allowed size. | 400 Bad Request |
-| InternalError | We encountered an internal error. Please try again. | 500 Internal Server Error |
-| InvalidAccessKeyId | The AWS access key Id you provided does not exist in our records. | 403 Forbidden |
-| InvalidArgument | Invalid Argument | 400 Bad Request |
-| InvalidBucketName | The specified bucket is not valid. | 400 Bad Request |
-| InvalidBucketState | The request is not valid with the current state of the bucket. | 409 Conflict |
-| InvalidDigest | The Content-MD5 you specified is not valid. | 400 Bad Request |
-| InvalidLocationConstraint | The specified location constraint is not valid. For more information about regions, see How to Select a Region for Your Buckets. | 400 Bad Request |
-| InvalidObjectState | The operation is not valid for the current state of the object. | 403 Forbidden |
-| InvalidPart | One or more of the specified parts could not be found. The part might not have been uploaded, or the specified entity tag might not have matched the part's entity tag. | 400 Bad Request |
-| InvalidPartOrder | The list of parts was not in ascending order. Parts list must specified in order by part number. | 400 Bad Request |
-| InvalidRange | The requested range cannot be satisfied. | 416 Requested Range Not Satisfiable |
-| InvalidRequest | Please use AWS4-HMAC-SHA256. | 400 Bad Request |
-| InvalidSecurity | The provided security credentials are not valid. | 403 Forbidden |
-| InvalidURI | Couldn't parse the specified URI. | 400 Bad Request |
-| KeyTooLong | Your key is too long. | 400 Bad Request |
-| MalformedACLError | The XML you provided was not well-formed or did not validate against our published schema. | 400 Bad Request |
-| MalformedPOSTRequest | The body of your POST request is not well-formed multipart/form-data. | 400 Bad Request |
-| MalformedXML | This happens when the user sends malformed xml (xml that doesn't conform to the published xsd) for the configuration. The error message is, "The XML you provided was not well-formed or did not validate against our published schema." | 400 Bad Request |
-| MaxMessageLengthExceeded | Your request was too big. | 400 Bad Request |
-| MaxPostPreDataLengthExceededError | Your POST request fields preceding the upload file were too large. | 400 Bad Request |
-| MetadataTooLarge | Your metadata headers exceed the maximum allowed metadata size. | 400 Bad Request |
-| MethodNotAllowed | The specified method is not allowed against this resource. | 405 Method Not Allowed |
-| MissingContentLength | You must provide the Content-Length HTTP header. | 411 Length Required |
-| MissingRequestBodyError | This happens when the user sends an empty xml document as a request. The error message is, "Request body is empty." | 400 Bad Request |
-| NoSuchBucket | The specified bucket does not exist. | 404 Not Found |
-| NoSuchKey | The specified key does not exist. | 404 Not Found |
-| NoSuchUpload | The specified multipart upload does not exist. The upload ID might be invalid, or the multipart upload might have been aborted or completed. | 404 Not Found |
-| NotImplemented | A header you provided implies functionality that is not implemented. | 501 Not Implemented |
-| OperationAborted | A conflicting conditional operation is currently in progress against this resource. Try again. | 409 Conflict |
-| PreconditionFailed | At least one of the preconditions you specified did not hold. | 412 Precondition | Failed |
-| Redirect | Temporary redirect. | 307 Moved Temporarily |
-| RequestIsNotMultiPartContent | Bucket POST must be of the enclosure-type multipart/form-data. | 400 Bad Request |
-| RequestTimeout | Your socket connection to the server was not read from or written to within the timeout period. | 400 Bad Request |
-| RequestTimeTooSkewed | The difference between the request time and the server's time is too large. | 403 Forbidden |
-| SignatureDoesNotMatch | The request signature we calculated does not match the signature you provided. Check your AWS secret access key and signing method. For more information, see REST Authentication and SOAP Authentication for details. | 403 Forbidden |
-| ServiceUnavailable | Reduce your request rate. | 503 Service Unavailable |
-| SlowDown | Reduce your request rate. | 503 Slow Down |
-| TemporaryRedirect | You are being redirected to the bucket while DNS updates. | 307 Moved Temporarily |
-| TooManyBuckets | You have attempted to create more buckets than allowed. | 400 Bad Request |
-| UnexpectedContent | This request does not support content. | 400 Bad Request |
-| UserKeyMustBeSpecified | The bucket POST must contain the specified field name. If it is specified, check the order of the fields. | 400 Bad Request |
-
-## Operations on the Account
-{: #operations-on-service}
-
-### List buckets belonging to an account
+## List buckets belonging to an account
 
 A `GET` issued to the endpoint root returns a list of buckets associated with the requesting account. This operation does not make use of operation specific headers, query parameters, or payload elements.
 
@@ -156,7 +63,7 @@ Authorization: {authorization-string}
 ----
 
 <!-- 
-### View the storage class of buckets belonging to an account
+## View the storage class of buckets belonging to an account
 
 A `GET` issued to the endpoint root with the `pagination` query parameter returns a list of buckets associated with the requesting account along with their storage class (shown as `LocationConstraint`).
 
@@ -214,10 +121,7 @@ Authorization: {authorization-string}
 
 -->
 
-## Operations on Buckets
-{: #operations-on-buckets}
-
-### Create a new bucket
+## Create a new bucket
 
 A `PUT` issued to the endpoint root will create a bucket when a string is provided.  Bucket names must be unique, and accounts are limited to 100 buckets each.  Bucket names must be DNS-compliant; names between 3 and 63 characters long must be made of lowercase letters, numbers, and dashes. Bucket names must begin and end with a lowercase letter or number.  Bucket names resembling IP addresses are not allowed. This operation does not make use of operation specific headers or query parameters.
 
@@ -257,7 +161,7 @@ Content-Length: 0
 
 ----
 
-### Create a bucket using a different provisioning code
+## Create a bucket using a different provisioning code
 
 To create a bucket using a custom provisioing code, send an XML block specifying a bucket configuration with a `LocationConstraint` of `{provisioning code}` in the body of a `PUT` request to a bucket endpoint.  Note that standard bucket [naming rules](docs/services/ObjectStorageDedicated/api-reference#create-a-new-bucket) apply.
 
@@ -311,7 +215,7 @@ Content-Length: 0
 
 ----
 
-### Retrieve a bucket's storage class
+## Retrieve a bucket's storage class
 
 A `GET` issued to a bucket with the proper parameters will return the storage class for that bucket.  This operation does not make use of operation specific headers, additional query parameters, or payload elements.
 
@@ -354,7 +258,7 @@ Content-Length: 151
 
 ----
 
-### Retrieve a bucket's headers
+## Retrieve a bucket's headers
 
 A `HEAD` issued to a bucket will return the headers for that bucket.
 
@@ -392,7 +296,7 @@ Content-Length: 0
 
 ----
 
-### List objects in a given bucket
+## List objects in a given bucket
 
 A `GET` request addressed to a bucket returns a list of objects, limited to 1,000 at a time and returned in non-lexographical order. The `StorageClass` value that is returned in the response is a default value as storage class operations are not implemented in COS. This operation does not make use of operation specific headers or payload elements.
 
@@ -405,7 +309,7 @@ GET https://{endpoint}/{bucket-name} # path style
 GET https://{bucket-name}.{endpoint} # virtual host style
 ```
 
-### Optional query parameters
+## Optional query parameters
 
 Name | Type | Description
 --- | ---- | ------------
@@ -486,7 +390,7 @@ Content-Length: 909
 
 ----
 
-### Delete a bucket
+## Delete a bucket
 
 A `DELETE` issued to an empty bucket deletes the bucket. After deleting a bucket the name will be held in reserve by the system for 10 minutes, after which it will be released for re-use.  *Only empty buckets can be deleted.*
 
@@ -533,7 +437,7 @@ Host: s3-api.us-geo.objectstorage.softlayer.net
 
 ----
 
-### Create an access control list for a bucket
+## Create an access control list for a bucket
 
 A `PUT` issued to a bucket with the proper parameters creates an access control list (ACL) for that bucket.  Access control lists allow for granting different sets of permissions to different storage accounts using the account's ID, or by using a pre-made ACL.
 
@@ -625,7 +529,7 @@ x-amz-request-id: 73d3cd4a-ff1d-4ac9-b9bb-43529b11356a
 
 ----
 
-### Retrieve the access control list for a bucket
+## Retrieve the access control list for a bucket
 
 A `GET` issued to a bucket with the proper parameters retrieves the ACL for a bucket.
 
@@ -681,7 +585,7 @@ Content-Length: 550
 
 ----
 
-### List canceled/incomplete multipart uploads for a bucket
+## List canceled/incomplete multipart uploads for a bucket
 
 A `GET` issued to a bucket with the proper parameters retrieves information about any canceled or incomplete multipart uploads for a bucket.
 
@@ -770,7 +674,7 @@ Content-Length: 374
 
 ----
 
-### List any cross-origin resource sharing configuration for a bucket
+## List any cross-origin resource sharing configuration for a bucket
 
 A `GET` issued to a bucket with the proper parameters retrieves information about cross-origin resource sharing (CORS) configuration for a bucket.
 
@@ -812,7 +716,7 @@ Content-Length: 123
 
 ----
 
-### Create a cross-origin resource sharing configuration for a bucket
+## Create a cross-origin resource sharing configuration for a bucket
 
 A `PUT` issued to a bucket with the proper parameters creates or replaces a cross-origin resource sharing (CORS) configuration for a bucket.
 
@@ -864,7 +768,7 @@ Content-Length: 0
 
 ----
 
-### Delete any cross-origin resource sharing configuration for a bucket
+## Delete any cross-origin resource sharing configuration for a bucket
 
 A `DELETE` issued to a bucket with the proper parameters creates or replaces a cross-origin resource sharing (CORS) configuration for a bucket.
 
@@ -893,7 +797,7 @@ The server responds with `204 No Content`.
 ## Operations on Objects
 {: #operations-on-objects}
 
-### Upload an object
+## Upload an object
 
 A `PUT` given a path to an object uploads the request body as an object. A SHA256 hash of the object is a required header.  All objects are limited to 5TB in size.
 
@@ -940,7 +844,7 @@ Content-Length: 0
 
 ----
 
-### Get an object's headers
+## Get an object's headers
 
 A `HEAD` given a path to an object retrieves that object's headers.
 
@@ -951,7 +855,7 @@ HEAD https://{endpoint}/{bucket-name}/{object-name} # path style
 HEAD https://{bucket-name}.{endpoint}/{object-name} # virtual host style
 ```
 
-#### Optional headers
+### Optional headers
 
 Header | Type | Description
 --- | ---- | ------------
@@ -989,7 +893,7 @@ Content-Length: 11
 
 ----
 
-### Download an object
+## Download an object
 
 A `GET` given a path to an object downloads the object.
 
@@ -1000,7 +904,7 @@ GET https://{endpoint}/{bucket-name}/{object-name} # path style
 GET https://{bucket-name}.{endpoint}/{object-name} # virtual host style
 ```
 
-### Optional headers
+## Optional headers
 
 Header | Type | Description
 --- | ---- | ------------
@@ -1043,7 +947,7 @@ Content-Length: 467
 
 ----
 
-### Delete an object
+## Delete an object
 
 A `DELETE` given a path to an object deletes an object.
 
@@ -1077,7 +981,7 @@ x-amz-request-id: 8ff4dc32-a6f0-447f-86cf-427b564d5855
 
 ----
 
-### Deleting multiple objects
+## Deleting multiple objects
 
 A `POST` given a path to an bucket and proper parameters will delete a specified set of objects.
 
@@ -1139,7 +1043,7 @@ Content-Length: 207
 
 ----
 
-### Copy an object
+## Copy an object
 
 A `PUT` given a path to a new object creates a new copy of another object specified by the `x-amz-copy-source` header. Unless otherwise altered the metadata remains the same, although any ACL is reset to `private` for the  account creating the copy.
 
@@ -1151,7 +1055,7 @@ PUT https://{endpoint}/{bucket-name}/{object-name} # path style
 PUT https://{bucket-name}.{endpoint}/{object-name} # virtual host style
 ```
 
-#### Optional headers
+### Optional headers
 
 Header | Type | Description
 --- | ---- | ------------
@@ -1197,7 +1101,7 @@ Content-Length: 240
 
 ----
 
-### Retrieve an object's ACL
+## Retrieve an object's ACL
 
 A `GET` given a path to an object given the parameter `?acl=` retrieves the access control list for the object.
 
@@ -1252,7 +1156,7 @@ Content-Length: 550
 
 ----
 
-### Create an ACL for an object
+## Create an ACL for an object
 
 A `PUT` issued to an object with the proper parameters creates an access control list (ACL) for that object.  Access control lists allow for granting different sets of permissions to different storage accounts using the account's ID, or by using a pre-made ACL.
 
@@ -1371,7 +1275,7 @@ Content-Length: 0
 
 ----
 
-### Check an object's CORS configuration
+## Check an object's CORS configuration
 
 An `OPTIONS` given a path to an object along with an origin and request type checks to see if that object is accessible from that origin using that request type.  Unlike all other requests, an OPTIONS request does not require the `authorization` or `x-amx-date` headers.
 
@@ -1412,7 +1316,7 @@ Content-Length: 0
 
 ----
 
-### Uploading objects in multiple parts
+## Uploading objects in multiple parts
 
 When working with larger objects, multipart upload operations are recommended to write objects into IBM COS. An upload of a single object can be performed as a set of parts and these parts can be uploaded independently in any order and in parallel. Upon upload completion, IBM COS then presents all parts as a single object. This provides many benefits: network interruptions do not cause large uploads to fail, uploads can be paused and restarted over time, and objects can be uploaded as they are being created.
 
@@ -1430,7 +1334,7 @@ There are three phases to uploading an object in multiple parts:
 2. Individual parts are uploaded specifying their sequential part numbers and the `UploadId` for the object.
 3. When all parts are finished uploading, the upload is completed by sending a request with the `UploadId` and an XML block that lists each part number and it's respective `Etag` value.
 
-### Initiate a multipart upload
+## Initiate a multipart upload
 
 A `POST` issued to an object with the query parameter `upload` creates a new `UploadId` value, which is then be referenced by each part of the object being uploaded.
 
@@ -1473,7 +1377,7 @@ Content-Length: 276
 
 ----
 
-### Upload a part
+## Upload a part
 
 A `PUT` request issued to an object with query parameters `partNumber` and `uploadId` will upload one part of an object.  The parts may be uploaded serially or in parallel, but must be numbered in order.
 
@@ -1510,7 +1414,7 @@ Content-Length: 0
 
 ----
 
-### Complete a multipart upload
+## Complete a multipart upload
 
 A `POST` request issued to an object with query parameter `uploadId` and the appropriate XML block in the body will complete a multipart upload.
 
@@ -1579,7 +1483,7 @@ Content-Length: 364
 
 ----
 
-### Abort incomplete multipart uploads
+## Abort incomplete multipart uploads
 
 A `DELETE` request issued to an object with query parameter `uploadId` will delete all unfinished parts of a multipart upload.
 
