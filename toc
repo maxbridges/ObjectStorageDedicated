@@ -30,6 +30,7 @@ Cloud Object Storage Dedicated
     os_dedicated_objects.md
     os_dedicated_security.md
     os_dedicated_unbinding.md
+    manage-access.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

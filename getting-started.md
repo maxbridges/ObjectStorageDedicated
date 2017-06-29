@@ -10,7 +10,7 @@ lastupdated: "2017-02-23"
 
 
 
-# Getting started with IBM Cloud Object Storage Dedicated IBM Managed {: #getting-started}
+# Getting started with IBM Cloud Object Storage Dedicated {: #getting-started}
 
 
 {{site.data.keyword.cosdimfull}} provides unstructured cloud data storage. You can store and access your content, as well as interactively compose and connect to apps and services.
@@ -32,11 +32,8 @@ lastupdated: "2017-02-23"
 # Related Links
 {: #rellinks notoc}
 
-## API Reference
-{: #api}
-* [S3 API](https://ibm-public-cos.github.io/crs-docs/crs-api-reference.html){: new_window}
-
 ## Related Links
 {: #general}
+* [IBM Cloud Object Storage Developer Center](https://developer.ibm.com/cloudobjectstorage/){: new_window}
 * [IBM {{site.data.keyword.Bluemix_notm}} Pricing Sheet](https://www.ng.bluemix.net/#/pricing){: new_window}
 * [IBM {{site.data.keyword.Bluemix_notm}} Prerequisites](https://developer.ibm.com/bluemix/support/#prereqs){: new_window}

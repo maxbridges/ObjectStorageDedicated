@@ -1,8 +1,11 @@
 ---
+
 copyright:
   years: 2017
 lastupdated: "2017-02-23"
+
 ---
+
 # Using Python
 
 Python support is provided through the Boto 3 library.  It can be installed from the Python Package Index via `pip install boto3`. The examples shown here were generated using version 1.4.0 of the boto3 package.  
@@ -19,7 +22,7 @@ aws_secret_access_key = {Secret Access Key}
 
 The `boto3` library provides complete access to the S3 API and can source credentials from the `~/.aws/credentials` file referenced above.  The IBM COS endpoint must be specified when creating a service resource or low-level client as shown in the following basic examples. 
 
-{% include tip.html content= "Detailed documentation can be found at [boto3.readthedocs.io](https://boto3.readthedocs.io/en/latest/reference/services/s3.html)." %}
+Detailed documentation can be found at [boto3.readthedocs.io](https://boto3.readthedocs.io/en/latest/reference/services/s3.html).
 
 
 ## Example service resource script

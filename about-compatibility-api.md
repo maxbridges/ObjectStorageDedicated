@@ -1,8 +1,11 @@
 ---
+
 copyright:
   years: 2017
 lastupdated: "2017-02-23"
+
 ---
+
 # About the Compatibility API
 
 # API Reference

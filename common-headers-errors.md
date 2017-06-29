@@ -1,7 +1,9 @@
 ---
+
 copyright:
   years: 2017
 lastupdated: "2017-02-23"
+
 ---
 
 {:new_window: target="_blank"}
@@ -80,7 +82,7 @@ The following table describes common response headers.
 | NoSuchUpload | The specified multipart upload does not exist. The upload ID might be invalid, or the multipart upload might have been aborted or completed. | 404 Not Found |
 | NotImplemented | A header you provided implies functionality that is not implemented. | 501 Not Implemented |
 | OperationAborted | A conflicting conditional operation is currently in progress against this resource. Try again. | 409 Conflict |
-| PreconditionFailed | At least one of the preconditions you specified did not hold. | 412 Precondition | Failed |
+| PreconditionFailed | At least one of the preconditions you specified did not hold. | 412 Precondition Failed |
 | Redirect | Temporary redirect. | 307 Moved Temporarily |
 | RequestIsNotMultiPartContent | Bucket POST must be of the enclosure-type multipart/form-data. | 400 Bad Request |
 | RequestTimeout | Your socket connection to the server was not read from or written to within the timeout period. | 400 Bad Request |

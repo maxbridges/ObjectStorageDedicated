@@ -1,7 +1,9 @@
 ---
+
 copyright:
   years: 2017
 lastupdated: "2017-02-23"
+
 ---
 
 {:new_window: target="_blank"}
@@ -59,67 +61,6 @@ Authorization: {authorization-string}
     </Buckets>
 </ListAllMyBucketsResult>
 ```
-
-----
-
-<!-- 
-## View the storage class of buckets belonging to an account
-
-A `GET` issued to the endpoint root with the `pagination` query parameter returns a list of buckets associated with the requesting account along with their storage class (shown as `LocationConstraint`).
-
-**Syntax**
-
-```bash
-GET https://{endpoint}/?pagination=
-```
-
-**Sample request**
-
-```http
-GET /?pagination= HTTP/1.1
-Content-Type: text/plain
-Host: s3-api.us-geo.objectstorage.softlayer.net
-X-Amz-Date: 20160822T030815Z
-Authorization: {authorization-string}
-```
-
-**Sample response**
-
-```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ListAllMyBucketsResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-    <Owner>
-        <ID>{account-id}</ID>
-        <DisplayName>{account-id}</DisplayName>
-    </Owner>
-    <Buckets>
-        <Bucket>
-            <Name>bucket-27200-lwx4cfvcue</Name>
-            <CreationDate>2016-08-18T14:21:36.593Z</CreationDate>
-            <LocationConstraint>us-standard</LocationConstraint>
-        </Bucket>
-        <Bucket>
-            <Name>bucket-27590-drqmydpfdv</Name>
-            <CreationDate>2016-08-18T14:22:32.366Z</CreationDate>
-            <LocationConstraint>us-standard</LocationConstraint>
-        </Bucket>
-        <Bucket>
-            <Name>bucket-27852-290jtb0n2y</Name>
-            <CreationDate>2016-08-18T14:23:03.141Z</CreationDate>
-            <LocationConstraint>us-cold</LocationConstraint>
-        </Bucket>
-        <Bucket>
-            <Name>bucket-28731-k0o1gde2rm</Name>
-            <CreationDate>2016-08-18T14:25:09.599Z</CreationDate>
-            <LocationConstraint>us-vault</LocationConstraint>
-        </Bucket>
-    </Buckets>
-</ListAllMyBucketsResult>
-```
-
-----
-
--->
 
 ## Create a new bucket
 
@@ -209,51 +150,6 @@ Content-Length: 0
 
 ----
 
-<!-- 
-
-----
-
-## Retrieve a bucket's storage class
-
-A `GET` issued to a bucket with the proper parameters will return the storage class for that bucket.  This operation does not make use of operation specific headers, additional query parameters, or payload elements.
-
-**Syntax**
-
-```bash
-HEAD https://{endpoint}/{bucket-name}?location= # path style
-HEAD https://{bucket-name}.{endpoint}?location= # virtual host style
-```
-
-**Sample request**
-
-This is an example of fetching the headers for the 'images' bucket.
-
-```http
-GET /images?location= HTTP/1.1
-Content-Type: text/plain
-Host: s3-api.us-geo.objectstorage.softlayer.net
-X-Amz-Date: 20160821T052842Z
-Authorization:{authorization-string}
-```
-
-**Sample response**
-
-```http
-HTTP/1.1 200 OK
-Date: Wed, 24 May 2017 17:46:35 GMT
-X-Clv-Request-Id: 0c2832e3-3c51-4ea6-96a3-cd8482aca08a
-Accept-Ranges: bytes
-Server: Cleversafe/3.10.138
-X-Clv-S3-Version: 2.5
-Content-Length: 151
-```
-
-```xml
-<LocationConstraint xmlns="http://s3.amazonaws.com/doc/2006-03-01/">us-flex</LocationConstraint>
-```
-
--->
-
 
 ## Retrieve a bucket's headers
 
@@ -299,7 +195,7 @@ A `GET` request addressed to a bucket returns a list of objects, limited to 1,00
 
 **Syntax**
 
-{% include note.html content="Note that the 'version 2' method of listing objects within a bucket is not supported, and the 'version 1' syntax is needed." %}
+Note that the 'version 2' method of listing objects within a bucket is not supported, and the 'version 1' syntax is needed.
 
 ```bash
 GET https://{endpoint}/{bucket-name} # path style
