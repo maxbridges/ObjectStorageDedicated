@@ -1,19 +1,10 @@
 ---
-title: Using the command line to connect to IBM COS  
-keywords: 
-last_updated: November 18, 2016
-tags: 
-summary: 
-sidebar: crs_sidebar
-permalink: cli
-redirect_from:
-  - /crs-cli
-  - /crs-cli.html
-folder: api-reference
-toc: true
+copyright:
+  years: 2017
+lastupdated: "2017-02-23"
 ---
 
-### AWS CLI
+# Using a CLI
 The official command line interface for AWS is compatible with the IBM COS S3 API. Written in Python, it can be installed from the Python Package Index via `pip install awscli`. By default, access keys are sourced from `~/.aws/credentials`, but can also be set as environment variables.
 
 These examples have been generated using version 1.10.66 of the CLI.  To check the version installed, run `aws --version`.
@@ -32,7 +23,7 @@ Simple use cases can be accomplished using `aws --endpoint-url={endpoint} s3 <co
 
 **Note**: Buckets can not be created using this method. Instead, use the `s3api` method described below.
 
-#### Basic operations 
+## Basic operations 
 Listing buckets:
 
 ```shell
@@ -97,8 +88,6 @@ $ aws --endpoint-url=https://{endpoint} s3api list-buckets
 
 Creating a new bucket:
 
-{% include custom/locations.md %}
-
 ```bash
 $ aws --endpoint-url=https://{endpoint} s3api create-bucket --bucket {bucket-name} [--region us-standard]
 ```
@@ -157,7 +146,7 @@ $ aws --endpoint-url=https://{endpoint} s3api list-objects --bucket bucket1
 }
 ```
 
-#### Pre-signed URLs
+## Pre-signed URLs
 The CLI is also capable of creating pre-signed URLs.  These allow for public consumption of objects without the need to provide authentication, or the need to actually change the access control settings of an object.
 
 ```bash

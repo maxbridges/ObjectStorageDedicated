@@ -30,8 +30,6 @@ From the {{site.data.keyword.Bluemix_notm}} UI you can see the region in which y
 
 ### Downloading objects from storage
 
-**Attention**: To prevent data destruction by unintentional over-writes, [set up object versioning](http://ibm-cos-help.github.io/help-documentation/cosapi/apioverview/Overview/). If you do not want object versioning, list your existing files in the store, and if necessary, rename the directory or the files before you download.
-
 1. In your service dashboard, select **Download File** to retrieve your object from storage.
 
 

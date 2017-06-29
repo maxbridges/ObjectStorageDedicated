@@ -5,7 +5,7 @@
 Cloud Object Storage Dedicated
 
 	{: .navgroup id="learn"}
-	getting-started.md
+	index.md
 	os_works_dedicated.md
 	{: .navgroup-end}
 
