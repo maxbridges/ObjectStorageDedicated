@@ -19,7 +19,7 @@ Cloud Object Storage Dedicated
         api-reference-objects.md
 
     {: .topicgroup}
-    Tools & SDKs
+    Tools and SDKs
         cli.md
         java.md
         python.md
