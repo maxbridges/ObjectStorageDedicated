@@ -34,7 +34,7 @@ lastupdated: "2017-02-23"
 
 ## API Reference
 {: #api}
-* [S3 API](https://ibm-public-cos.github.io/crs-docs/crs-api-reference.html){: new_window}
+* [S3 API](/docs/services/ObjectStorageDedicated/about-compatibility-api.html){: new_window}
 
 ## Related Links
 {: #general}
