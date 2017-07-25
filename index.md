@@ -13,13 +13,30 @@ lastupdated: "2017-02-23"
 # Getting started with IBM Cloud Object Storage Dedicated {: #getting-started}
 
 
-{{site.data.keyword.cosdimfull}} provides unstructured cloud data storage. You can store and access your content, as well as interactively compose and connect to apps and services.
+{{site.data.keyword.cosdimfull}} provides cloud storage for unstructured data.
+Unstructured data refers to files,
+audio/visual media,
+PDFs,
+compressed data archives,
+backup images,
+application artifacts,
+business documents,
+or any other binary object.
+Like the rest of IBM Cloud,
+it's built with scalability,
+high availability,
+and durability in mind.
+{{site.data.keyword.cosdimfull}} does not require replication to provide data resiliency,
+but instead uses erasure coding and an Information Dispersal Algorithm to slice and distribute the object across physical storage appliances.
+Store and access your data over HTTP(S) using an implementation of the S3 API.
 {: shortdesc}
 
+To use the service,
+follow these steps:
 
 1. Provision your service instance from the {{site.data.keyword.Bluemix_notm}} catalog. Configure your instance and click **Create**. If you initially choose the **Leave Unbound** option for the **App** field, you can bind the service instance to your {{site.data.keyword.Bluemix_notm}} app later.
 
-2. In your service instance dashboard, a bucket to start storing objects.
+2. In your service instance dashboard, create a bucket to start storing objects.
 
 3. Add a file to your bucket, by using the **Actions** menu.
 
@@ -27,14 +44,15 @@ lastupdated: "2017-02-23"
 
 5. When you're ready, [bind the service](/docs/services/reqnsi.html#add_service) to an application.
 
-
+See how easy building a cloud application can be with a [tutorial showing how to make a simple web-based image gallery](/docs/services/ObjectStorageDedicated/web-gallery-tutorial.html)) using {{site.data.keyword.Bluemix_notm}} and {{site.data.keyword.cosdimshort_notm}}.
 
 # Related Links
 {: #rellinks notoc}
 
 ## API Reference
 {: #api}
-* [S3 API](/docs/services/ObjectStorageDedicated/about-compatibility-api.html){: new_window}
+* [API Overview](/docs/services/ObjectStorageDedicated/about-compatibility-api.html){: new_window}
+* [CLI Overview](/docs/services/ObjectStorageDedicated/CLI.html){: new_window}
 
 ## Related Links
 {: #general}
