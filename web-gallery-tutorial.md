@@ -1,13 +1,13 @@
-# Implementation of the Web Gallery scenario
+# Tutorial: Image Gallery
 
-This document covers the step by step implementation of the Web Gallery scenario.
+This tutorial introduces how a simple web application can be built on the IBM Cloud.  This application uses Cloud Object Storage as the back-end storage for a Node.js application that allows a user to upload and view photos or other images.
 
 ## Getting started
 
 Before getting started with writing any code, you must ensure that you
 have the following items set up:
 
--   IBM Bluemix account
+-   IBM Bluemix
 
 -   Cloud Foundry
 
