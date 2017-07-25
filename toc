@@ -7,6 +7,7 @@ Cloud Object Storage Dedicated
     {: .navgroup id="learn"}
     index.md
     os_works_dedicated.md
+    web-gallery-tutorial.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
