@@ -35,5 +35,7 @@ Cloud Object Storage Dedicated
     {: .navgroup-end}
 
     {: .navgroup id="help"}
+    faq.md
+    developer-guidance.md
     ts_index.md
     {: .navgroup-end}

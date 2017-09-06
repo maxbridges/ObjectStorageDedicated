@@ -27,9 +27,9 @@ Both admins and developers can store and access objects as shown in the followin
     <dd> You can bind the {{site.data.keyword.cosdimshort}} service to a {{site.data.keyword.Bluemix_notm}} app.  </dd>
   <dt> S3 API </dt>
     <dd> The service uses an implementation of the S3 API to manage your storage.  </dd>
-  <dt> Load balancer </dt>
+  <dt> Accesser appliance </dt>
     <dd> To maintain data integrity and availability, data is sliced, balanced and then dispersed to storage nodes.  </dd>
-  <dt> Storage nodes </dt>
+  <dt> Slicestor appliances </dt>
     <dd> The service provides limitless data storage across multiple regions. By separating your data, you never lose access. Even if an entire site goes down, data can be retrieved from a subset of slices. </dd>
 </dl>
 

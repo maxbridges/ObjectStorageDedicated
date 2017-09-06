@@ -49,6 +49,9 @@ See how easy building a cloud application can be with a [tutorial showing how to
 # Related Links
 {: #rellinks notoc}
 
+* [Definitive Guide to Cloud Object Storage](https://www.ibm.com/cloud-computing/products/storage/object-storage/how-it-works/)
+* [IBM Redbook: Cloud Object Storage](https://www.redbooks.ibm.com/abstracts/sg248385.html)
+
 ## API Reference
 {: #api}
 * [API Overview](/docs/services/ObjectStorageDedicated/about-compatibility-api.html){: new_window}
