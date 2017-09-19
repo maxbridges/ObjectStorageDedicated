@@ -476,7 +476,7 @@ contains a scriptlet for the page title on line 1. The title variable is
 being set in app.js on line 12, and passed in as data for our view
 template on line 15. Otherwise, we are simply using some CDN addresses
 to pull in Bootstrap CSS, Bootstrap JavaScript, and JQuery. We use a
-static styles.css file from our pubic/style sheets directory.
+static styles.css file from our public/style sheets directory.
 
 ![view_head-inc](https://cloud.githubusercontent.com/assets/19173079/24822956/18ec3ec6-1bbf-11e7-9240-3f5a913c1320.jpg)
 
